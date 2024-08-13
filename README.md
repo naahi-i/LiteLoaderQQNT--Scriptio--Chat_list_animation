@@ -1,3 +1,7 @@
+>[!WARNING]
+>请勿两个同时使用，会抽搐
+>正在寻找方法合二为一
+
 # [Elastic-Option](https://github.com/naahi-i/LiteLoaderQQNT-Transitio-Elastic-Option/blob/main/Elastic%20Option.css)
 使qqnt的会话列表按钮更有弹性的css片段
 
