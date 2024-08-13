@@ -1,0 +1,32 @@
+/* ==UserStyle==
+@name           smooth insertion
+@description    会话列表平滑插入
+@preprocessor   transitio
+@version        
+@author         naahi-i
+@homepageURL    
+@license     	  MIT
+==/UserStyle== */
+
+body.vue-component {
+    #app {
+        .recent-contact-list .viewport-list {
+            .list-item{
+                animation: addin 0.15s;
+            }
+        }
+    }
+}
+
+@keyframes addin {
+    from {
+        margin-bottom: -50px;
+        opacity: 0%;
+    }
+    to {
+        margin-bottom: 0;
+        opacity: 100%;
+        transform: none;
+    }
+}
+
