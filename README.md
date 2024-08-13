@@ -1,4 +1,5 @@
 # Chat_list_animation
+基于[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)和[transitio插件](https://github.com/PRO-2684/transitio）
 >[!WARNING]
 >请勿两个同时使用，会抽搐
 >正在寻找方法合二为一
