@@ -1,15 +1,24 @@
 # Chat_list_animation
-基于[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)和[transitio插件](https://github.com/PRO-2684/transitio)
->[!WARNING]
->请勿两个同时使用，会抽搐
->正在寻找方法合二为一
+基于[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，[transitio插件](https://github.com/PRO-2684/transitio)和[Scriptio插件](https://github.com/PRO-2684/Scriptio)
+>[!NOTE]
+>写的臃肿还请见谅
+>未来可能会做成单独的插件
 
-## [Elastic-Option](https://github.com/naahi-i/LiteLoaderQQNT-Transitio-Elastic-Option/blob/main/Elastic%20Option.css)
-使会话列表按钮更有弹性（图中速度偏慢）
 
-![show](https://github.com/naahi-i/LiteLoaderQQNT-Transitio-Elastic-Option/blob/fdbfa960a6853866126ec726eac46f0341ac7184/image/Elastic%20Option.gif)
+>[!IMPORTANT]
+>分为CSS部分和JavaScrip部分
+>需要配合使用
 
-## [Smooth insertion](https://github.com/naahi-i/LiteLoaderQQNT-Transitio-Chat-list-animation/blob/main/smooth%20insertion.css)
-使会话列表的刷新不那么生硬
+## [CSS部分](https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation/blob/main/Chat_list_animation.css)
+在transitio插件中使用
+直接导入即可
 
-![show](https://github.com/naahi-i/LiteLoaderQQNT-Transitio-Chat-list-animation/blob/c5b1a91c72394e27a434dfe76c68de4c10541cdc/image/smooth%20insertion.gif)
+## [JavaScrip部分](https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation/blob/main/Chat_list_animation(JavaScrip).js)
+在Scriptio插件中使用
+直接导入即可
+> [!WARNING]
+> js部分对会话列表的元素中添加了 `data-add-animation='true'` 属性
+> 可能与其他脚本冲突
+
+## 效果
+![show](gif/show.gif)
