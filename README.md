@@ -2,7 +2,7 @@
 基于[LiteLoaderQQNT框架](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，[transitio插件](https://github.com/PRO-2684/transitio)和[Scriptio插件](https://github.com/PRO-2684/Scriptio)
 
 >[!NOTE]
->写的臃肿还请见谅
+>写的简陋还请见谅
 >未来可能会做成单独的插件
 
 >[!IMPORTANT]
