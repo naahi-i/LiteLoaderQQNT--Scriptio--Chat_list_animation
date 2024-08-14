@@ -25,5 +25,5 @@
 
 ## [(不使用Chat_list_animation.css)Elastic Option](https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation/blob/main/Elastic%20Option.css)
 因为整合版的刷新插入动画还是有些蹩脚  
-可以选择使用此脚本单独增加按钮按下动画  
+可以选择使用此脚本仅加入按钮按下动画  
 **单独使用此脚本不需要导入JavaScrip脚本**
