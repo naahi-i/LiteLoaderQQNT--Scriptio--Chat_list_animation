@@ -1,9 +1,9 @@
 # Chat_list_animation
-基于[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，[transitio插件](https://github.com/PRO-2684/transitio)和[Scriptio插件](https://github.com/PRO-2684/Scriptio)
+基于[LiteLoaderQQNT框架](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，[transitio插件](https://github.com/PRO-2684/transitio)和[Scriptio插件](https://github.com/PRO-2684/Scriptio)
+
 >[!NOTE]
 >写的臃肿还请见谅
 >未来可能会做成单独的插件
-
 
 >[!IMPORTANT]
 >分为CSS部分和JavaScrip部分
@@ -17,8 +17,8 @@
 在Scriptio插件中使用
 直接导入即可
 > [!WARNING]
-> js部分对会话列表的元素中添加了 `data-add-animation='true'` 属性
+> js部分对会话列表的元素中临时添加了 `data-add-animation='true'` 属性
 > 可能与其他脚本冲突
 
-## 效果
+## 🪄效果
 ![show](gif/show.gif)
