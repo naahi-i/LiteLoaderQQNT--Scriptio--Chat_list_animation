@@ -1,0 +1,32 @@
+/* ==UserStyle==
+@name           Elastic Option
+@description    让会话列表的选项变的Q弹
+@preprocessor   transitio
+@version        
+@author         naahi-i
+@homepageURL    https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation
+@license     	
+==/UserStyle== */
+
+@keyframes press-and-bounce {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(0.98) translateY(2px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+body.vue-component {
+    #app {
+        .recent-contact-list .viewport-list {
+            .list-item.list-item--selected {
+                animation: press-and-bounce 0.4s cubic-bezier(0.4, 0, 0.2, 1) ; /* 动画效果 */
+            }
+        }
+    }
+}
