@@ -2,7 +2,7 @@
 基于[LiteLoaderQQNT框架](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)和[Scriptio插件](https://github.com/PRO-2684/Scriptio)
 
 > [!WARNING]
-> 脚本对会话列表的元素中临时添加了 **`animate-addin'`** 类 
+> 脚本对会话列表的元素中临时添加了 **`'animate-addin'`** 类 
 > 可能与其他脚本冲突
 
 ## 🪄效果
