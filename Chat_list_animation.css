@@ -2,27 +2,17 @@
 @name           Chat_list_animation
 @description    添加会话列表动画
 @preprocessor   transitio
-@version        0.0.1
+@version        0.0.2
 @author         naahi-i
 @homepageURL    https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation
 @license     	
 ==/UserStyle== */
 
-body.vue-component {
-    #app {
-        .recent-contact-list .viewport-list {
-            .list-item[data-add-animation="true"] {/*判断刷新*/
-                animation: addin 0.15s ease-out;
-            }
-            .list-item.list-item--selected {/*判断选中*/
-                animation: press-and-bounce 0.4s cubic-bezier(0.4, 0, 0.2, 1) ; /* 动画效果 */
-            }
-        }
-    }
+/* 刷新效果 */
+.list-item.animate-addin {
+    animation: addin 0.15s ease-out;
 }
 
-/* 可选择注释掉来二选一 */
-/* 插入效果 */
 @keyframes addin {
     from {
         margin-bottom: -50px;
@@ -35,7 +25,11 @@ body.vue-component {
     }
 }
 
-/* 按钮效果 */
+/* 选中效果 */
+.list-item.list-item--selected {
+    animation: press-and-bounce 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @keyframes press-and-bounce {
     0% {
         transform: scale(1) translateY(0);
