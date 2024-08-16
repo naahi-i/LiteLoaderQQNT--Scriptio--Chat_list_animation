@@ -1,13 +1,16 @@
 // ==UserScript==
 // @name         Chat_list_animation
 // @description  添加会话列表动画
-// @version      0.0.3
+// @version      1.0.0
 // @homepageURL  https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation
 // @author       naahi-i
 // ==/UserScript==
 
 // 选择目标容器
 const container = document.querySelector('.recent-contact-list .viewport-list .viewport-list__inner');
+const placeholder = document.querySelector('.recent-contact-list .viewport-list .viewport-list__placeholder');
+
+let isRefreshAnimationPaused = false; // 标记是否暂停刷新动画
 
 // 创建并插入 CSS 样式到 <head>
 const style = document.createElement('style');
@@ -46,7 +49,6 @@ style.textContent = `
         }
     }
 `;
-//======================================================
 
 document.head.appendChild(style);
 
@@ -60,7 +62,6 @@ if (container) {
         const items = container.querySelectorAll('.list-item');
         items.forEach((item, index) => {
             elementIndexMap.set(item, index);
-            // 存储初始位置信息
             const rect = item.getBoundingClientRect();
             elementPositionMap.set(item, rect.top);
         });
@@ -68,12 +69,11 @@ if (container) {
 
     initializeElementPositions();
 
-    // 创建 MutationObserver 实例
+    // 创建 MutationObserver 实例监听 DOM 变化
     const observer = new MutationObserver(() => {
         if (!pendingChanges) {
             pendingChanges = true;
 
-            // 使用 requestAnimationFrame 确保所有 DOM 变化处理后再执行动画逻辑
             requestAnimationFrame(() => {
                 const items = container.querySelectorAll('.list-item');
                 const animationsToApply = [];
@@ -83,37 +83,56 @@ if (container) {
                     const oldPosition = elementPositionMap.get(item);
                     const newPosition = item.getBoundingClientRect().top;
 
-                    if (oldIndex !== undefined && index < oldIndex && newPosition < oldPosition) {
-                        // 元素因消息更新向前移动，记录需要应用动画的元素
+                    if (!isRefreshAnimationPaused && oldIndex !== undefined && index < oldIndex && newPosition < oldPosition) {
                         animationsToApply.push(item);
                     }
 
-                    // 更新元素的位置记录
                     elementIndexMap.set(item, index);
                     elementPositionMap.set(item, newPosition);
                 });
 
-                // 批量应用动画
-                requestAnimationFrame(() => {
-                    animationsToApply.forEach(item => {
-                        item.classList.add('animate-addin');
-                        setTimeout(() => item.classList.remove('animate-addin'), 200);
-                    });
-
-                    pendingChanges = false;
+                animationsToApply.forEach(item => {
+                    item.classList.add('animate-addin');
+                    setTimeout(() => item.classList.remove('animate-addin'), 150); // 与 CSS 动画时长匹配
                 });
+
+                pendingChanges = false;
             });
         }
     });
 
-    const config = { childList: true, subtree: true };
-    observer.observe(container, config);
-
-    // 添加滚动事件监听器
-    container.addEventListener('scroll', () => {
-        console.log('发生滚动');
-    });
+    observer.observe(container, { childList: true, subtree: true });
 
 } else {
     console.warn('没有找到目标容器。');
+}
+
+// 监听 .viewport-list__placeholder 中的 style.height 值变化
+if (placeholder) {
+    let previousHeight = placeholder.style.height;
+
+    const heightObserver = new MutationObserver(mutationsList => {
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                const currentHeight = placeholder.style.height;
+
+                if (currentHeight !== previousHeight) {
+                    isRefreshAnimationPaused = true;
+                    // console.log('Refresh animation paused due to height change.');
+
+                    previousHeight = currentHeight;
+
+                    requestAnimationFrame(() => {
+                        isRefreshAnimationPaused = false;
+                        // console.log('Refresh animation resumed.');
+                    });
+                }
+            }
+        }
+    });
+
+    heightObserver.observe(placeholder, { attributes: true, attributeFilter: ['style'] });
+
+} else {
+    console.warn('没有找到 .viewport-list__placeholder 元素。');
 }
