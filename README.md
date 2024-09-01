@@ -7,7 +7,3 @@
 
 ## 🪄效果
 ![show](gif/show.gif)
-
-## [(备选）Elastic Option](https://github.com/naahi-i/LiteLoaderQQNT--Transitio--Chat_list_animation/blob/main/Elastic%20Option.css) 
-可以选择使用此脚本仅加入按钮按下动画  
-**用于[transitio插件](https://github.com/PRO-2684/transitio)**
