@@ -16,7 +16,7 @@ let isRefreshAnimationPaused = false; // 标记是否暂停刷新动画
 const style = document.createElement('style');
 style.textContent = `
     /* 刷新效果 */
-    .list-item.animate-addin {
+    .recent-contact-item.animate-addin {
         animation: addin 0.15s ease-out !important;
     }
 
@@ -33,7 +33,7 @@ style.textContent = `
     }
 
     /* 选中效果 */
-    .list-item.list-item--selected {
+    .recent-contact-item.recent-contact-item--selected {
         animation: press-and-bounce 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -59,7 +59,7 @@ if (container) {
 
     // 初始化每个元素的位置
     const initializeElementPositions = () => {
-        const items = container.querySelectorAll('.list-item');
+        const items = container.querySelectorAll('.recent-contact-item');
         items.forEach((item, index) => {
             elementIndexMap.set(item, index);
             const rect = item.getBoundingClientRect();
@@ -75,7 +75,7 @@ if (container) {
             pendingChanges = true;
 
             requestAnimationFrame(() => {
-                const items = container.querySelectorAll('.list-item');
+                const items = container.querySelectorAll('.recent-contact-item');
                 const animationsToApply = [];
 
                 items.forEach((item, index) => {
